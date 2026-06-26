@@ -17,27 +17,39 @@ export type Database = {
       inquiries: {
         Row: {
           commodity: string
+          company: string | null
           company_email: string
+          country: string | null
           created_at: string
           full_name: string
           id: string
           message: string
+          phone: string | null
+          quantity: string | null
         }
         Insert: {
           commodity: string
+          company?: string | null
           company_email: string
+          country?: string | null
           created_at?: string
           full_name: string
           id?: string
           message: string
+          phone?: string | null
+          quantity?: string | null
         }
         Update: {
           commodity?: string
+          company?: string | null
           company_email?: string
+          country?: string | null
           created_at?: string
           full_name?: string
           id?: string
           message?: string
+          phone?: string | null
+          quantity?: string | null
         }
         Relationships: []
       }
