@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Toaster } from "sonner";
 import { motion } from "framer-motion";
 import {
-  Award, ShieldCheck, Truck, Globe2, Clock, HandshakeIcon,
+  Award, ShieldCheck, Truck, Globe2, Clock, Handshake,
   BadgeCheck, Sparkles, Menu, X, Mail, Linkedin, Instagram,
   CheckCircle2, Star,
 } from "lucide-react";
@@ -97,11 +97,11 @@ const productCategories = [
 const whyUs = [
   { icon: Award, title: "Premium Quality", desc: "Hand-selected sources, batch tested." },
   { icon: BadgeCheck, title: "Competitive Pricing", desc: "Direct from origin, no middlemen." },
-  { icon: HandshakeIcon, title: "Reliable Suppliers", desc: "Long-standing farmer networks." },
+  { icon: Handshake, title: "Reliable Suppliers", desc: "Long-standing farmer networks." },
   { icon: ShieldCheck, title: "Export Documentation", desc: "Phytosanitary, COO, FSSAI ready." },
   { icon: Clock, title: "On Time Delivery", desc: "Shipment SLAs you can plan around." },
   { icon: Truck, title: "Worldwide Shipping", desc: "Sea, air, multimodal logistics." },
-  { icon: HandshakeIcon, title: "Trusted Partnerships", desc: "Decade-long buyer relationships." },
+  { icon: Handshake, title: "Trusted Partnerships", desc: "Decade-long buyer relationships." },
   { icon: Globe2, title: "International Standards", desc: "ISO, HACCP, APEDA aligned." },
 ];
 
