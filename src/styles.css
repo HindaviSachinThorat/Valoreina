@@ -2,48 +2,66 @@
 @source "../src";
 @import "tw-animate-css";
 
-@import "@fontsource/fraunces/400.css";
-@import "@fontsource/fraunces/500.css";
-@import "@fontsource/fraunces/600.css";
-@import "@fontsource/inter/400.css";
-@import "@fontsource/inter/500.css";
-@import "@fontsource/inter/600.css";
+@import "@fontsource/playfair-display/400.css";
+@import "@fontsource/playfair-display/500.css";
+@import "@fontsource/playfair-display/600.css";
+@import "@fontsource/playfair-display/700.css";
+@import "@fontsource/poppins/300.css";
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/500.css";
+@import "@fontsource/poppins/600.css";
+@import "@fontsource/poppins/700.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-cream: var(--cream);
-  --color-forest: var(--forest);
-  --color-clay: var(--clay);
+  --color-emerald-brand: var(--emerald);
+  --color-emerald-deep: var(--emerald-deep);
   --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-beige: var(--beige);
   --color-ink: var(--ink);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
   --color-card: var(--card);
-  --color-primary: var(--forest);
-  --color-primary-foreground: var(--cream);
-  --color-ring: var(--forest);
+  --color-primary: var(--emerald);
+  --color-primary-foreground: #ffffff;
+  --color-ring: var(--emerald);
 
-  --font-serif: "Fraunces", ui-serif, Georgia, serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
 
-  --radius: 0.375rem;
+  --radius: 0.5rem;
 }
 
 :root {
-  --cream: #fcfaf7;
-  --forest: #1a2f23;
-  --clay: #9c4a34;
-  --gold: #b3934d;
-  --ink: #27272a;
+  --emerald: #0F5E4D;
+  --emerald-deep: #094034;
+  --gold: #C9A227;
+  --gold-soft: #E5C76B;
+  --beige: #F8F7F3;
+  --ink: #0e1a16;
 
-  --background: var(--cream);
-  --foreground: #27272a;
-  --card: #ffffff;
-  --muted: #f4f1ec;
-  --muted-foreground: #71717a;
-  --border: rgb(9 9 11 / 0.08);
+  --background: #FFFFFF;
+  --foreground: #0e1a16;
+  --card: #FFFFFF;
+  --muted: #F8F7F3;
+  --muted-foreground: #5b6b65;
+  --border: rgb(15 94 77 / 0.12);
+}
+
+.dark {
+  --background: #06120e;
+  --foreground: #f4f1ea;
+  --card: #0c1c17;
+  --muted: #0e2620;
+  --muted-foreground: #a8b5b0;
+  --border: rgb(255 255 255 / 0.08);
+  --emerald: #1f8a72;
+  --beige: #0e2620;
 }
 
 @layer base {
@@ -58,8 +76,33 @@
     color: var(--foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.01em;
   }
   ::selection {
-    background-color: rgb(179 147 77 / 0.25);
+    background-color: rgb(201 162 39 / 0.3);
   }
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@keyframes float-particle {
+  0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+  50% { transform: translateY(-30px) translateX(10px); opacity: 0.8; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@utility shimmer {
+  background: linear-gradient(90deg, transparent, rgba(201,162,39,0.3), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
 }
