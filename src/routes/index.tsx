@@ -481,7 +481,7 @@ function Home() {
               <div className="flex items-start gap-3">
                 <MapPin className="size-4 text-emerald-brand mt-0.5 shrink-0" />
                 <div>
-                  <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Headquarters</div>
+                  <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Head Office</div>
                   <div>{CONTACT_ADDRESS}</div>
                 </div>
               </div>
