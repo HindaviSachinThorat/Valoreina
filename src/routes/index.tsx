@@ -5,6 +5,7 @@ import {
   Award, ShieldCheck, Truck, Globe2, Clock, Handshake,
   BadgeCheck, Sparkles, Menu, X, Mail, Linkedin, Instagram,
   CheckCircle2, Star,
+  MapPin,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -16,10 +17,15 @@ import catHousehold from "@/assets/cat-household.jpg";
 import cargoShip from "@/assets/cargo-ship.jpg";
 import office from "@/assets/office.jpg";
 import quality from "@/assets/quality.jpg";
+import logoAsset from "@/assets/valoreina-logo.png.asset.json";
 
 import { InquiryForm } from "@/components/InquiryForm";
 import { BackToTop, WhatsAppButton, Particles, ScrollProgressLine } from "@/components/SiteChrome";
 import { ThemeToggle } from "@/components/ThemeToggle";
+
+const LOGO_URL = logoAsset.url;
+const CONTACT_EMAIL = "info.valoreina@gmail.com";
+const CONTACT_ADDRESS = "Wagholi, Pune, Maharashtra 412207, India";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -154,8 +160,8 @@ function Home() {
       <nav className="fixed top-0 z-40 w-full">
         <div className="mx-auto max-w-7xl px-6 mt-3">
           <div className="grid grid-cols-[minmax(0,1fr)_auto] sm:flex items-center justify-between gap-4 rounded-full bg-background/80 backdrop-blur-xl ring-1 ring-border px-5 py-3 shadow-sm">
-            <a href="#top" className="flex items-center gap-2 min-w-0">
-              <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-emerald-brand text-white font-serif text-base">V</span>
+            <a href="#top" className="flex items-center gap-2.5 min-w-0">
+              <img src={LOGO_URL} alt="Valoreina logo" width={40} height={40} className="h-9 w-9 shrink-0 rounded-full object-contain" />
               <span className="font-serif text-lg tracking-tight truncate">Valoreina</span>
             </a>
             <div className="hidden md:flex items-center gap-7 text-sm">
@@ -471,14 +477,14 @@ function Home() {
                 <Mail className="size-4 text-emerald-brand mt-0.5 shrink-0" />
                 <div>
                   <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Email</div>
-                  <a href="mailto:trade@valoreina.com" className="hover:text-emerald-brand">trade@valoreina.com</a>
+                  <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-emerald-brand">{CONTACT_EMAIL}</a>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <Globe2 className="size-4 text-emerald-brand mt-0.5 shrink-0" />
+                <MapPin className="size-4 text-emerald-brand mt-0.5 shrink-0" />
                 <div>
                   <div className="text-[11px] uppercase tracking-wider text-muted-foreground">Headquarters</div>
-                  <div>Mumbai, India</div>
+                  <div>{CONTACT_ADDRESS}</div>
                 </div>
               </div>
             </div>
@@ -495,16 +501,20 @@ function Home() {
           <div className="grid md:grid-cols-4 gap-12 mb-16">
             <div className="md:col-span-2">
               <div className="flex items-center gap-3">
-                <span className="grid h-10 w-10 place-items-center rounded-full bg-gold text-emerald-deep font-serif text-lg">V</span>
+                <img src={LOGO_URL} alt="Valoreina logo" width={48} height={48} className="h-12 w-12 rounded-full object-contain bg-white/5 ring-1 ring-white/10" />
                 <span className="font-serif text-2xl">Valoreina</span>
               </div>
               <p className="mt-5 text-white/70 max-w-md text-sm leading-relaxed">
                 A premium Indian export and trading company committed to quality, transparency and lasting global partnerships.
               </p>
+              <div className="mt-6 space-y-2 text-sm text-white/70">
+                <div className="flex items-start gap-2"><MapPin className="size-4 text-gold mt-0.5 shrink-0" /> {CONTACT_ADDRESS}</div>
+                <div className="flex items-start gap-2"><Mail className="size-4 text-gold mt-0.5 shrink-0" /> <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-gold">{CONTACT_EMAIL}</a></div>
+              </div>
               <div className="mt-6 flex gap-3">
                 <a href="#" aria-label="LinkedIn" className="grid h-9 w-9 place-items-center rounded-full ring-1 ring-white/20 hover:bg-gold hover:text-emerald-deep transition-colors"><Linkedin className="size-4" /></a>
                 <a href="#" aria-label="Instagram" className="grid h-9 w-9 place-items-center rounded-full ring-1 ring-white/20 hover:bg-gold hover:text-emerald-deep transition-colors"><Instagram className="size-4" /></a>
-                <a href="mailto:trade@valoreina.com" aria-label="Email" className="grid h-9 w-9 place-items-center rounded-full ring-1 ring-white/20 hover:bg-gold hover:text-emerald-deep transition-colors"><Mail className="size-4" /></a>
+                <a href={`mailto:${CONTACT_EMAIL}`} aria-label="Email" className="grid h-9 w-9 place-items-center rounded-full ring-1 ring-white/20 hover:bg-gold hover:text-emerald-deep transition-colors"><Mail className="size-4" /></a>
               </div>
             </div>
             <div>
