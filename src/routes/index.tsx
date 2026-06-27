@@ -256,11 +256,10 @@ function Home() {
                 We are committed to quality, transparency, ethical sourcing, timely delivery and long-term partnerships with importers, distributors and retail chains.
               </p>
             </div>
-            <div className="mt-10 grid grid-cols-3 gap-6">
+            <div className="mt-10 grid grid-cols-2 gap-6">
               {[
                 { k: "Origin", v: "India" },
                 { k: "Reach", v: "12+ Markets" },
-                { k: "Since", v: "2018" },
               ].map((b) => (
                 <div key={b.k}>
                   <div className="font-serif text-2xl text-emerald-brand">{b.v}</div>
