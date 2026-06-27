@@ -135,9 +135,9 @@ const stats = [
 ];
 
 const testimonials = [
-  { quote: "Excellent quality and consistent supply. Valoreina has become our default sourcing partner for premium jaggery and spices.", author: "Procurement Director", country: "United Arab Emirates" },
-  { quote: "Professional export service with impeccable documentation. Every shipment has cleared customs without a single delay.", author: "Import Manager", country: "Canada" },
-  { quote: "Reliable supplier with international standards. Their quality control is exactly what European retail buyers demand.", author: "Sourcing Head", country: "Germany" },
+  { quote: "Excellent quality and consistent supply. Valoreina has become our default sourcing partner for premium jaggery and spices.", author: "Procurement Director" },
+  { quote: "Professional export service with impeccable documentation. Every shipment has cleared customs without a single delay.", author: "Import Manager" },
+  { quote: "Reliable supplier with international standards. Their quality control is exactly what European retail buyers demand.", author: "Sourcing Head" },
 ];
 
 const navLinks = [
@@ -256,11 +256,10 @@ function Home() {
                 We are committed to quality, transparency, ethical sourcing, timely delivery and long-term partnerships with importers, distributors and retail chains.
               </p>
             </div>
-            <div className="mt-10 grid grid-cols-3 gap-6">
+            <div className="mt-10 grid grid-cols-2 gap-6">
               {[
                 { k: "Origin", v: "India" },
                 { k: "Reach", v: "12+ Markets" },
-                { k: "Since", v: "2018" },
               ].map((b) => (
                 <div key={b.k}>
                   <div className="font-serif text-2xl text-emerald-brand">{b.v}</div>
@@ -455,7 +454,6 @@ function Home() {
                 <p className="font-serif text-lg leading-snug text-foreground">"{t.quote}"</p>
                 <footer className="mt-6 pt-5 border-t border-border">
                   <div className="text-sm font-medium">{t.author}</div>
-                  <div className="text-xs text-muted-foreground mt-0.5">{t.country}</div>
                 </footer>
               </motion.blockquote>
             ))}
