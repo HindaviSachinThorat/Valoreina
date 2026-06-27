@@ -454,7 +454,6 @@ function Home() {
                 <p className="font-serif text-lg leading-snug text-foreground">"{t.quote}"</p>
                 <footer className="mt-6 pt-5 border-t border-border">
                   <div className="text-sm font-medium">{t.author}</div>
-                  <div className="text-xs text-muted-foreground mt-0.5">{t.country}</div>
                 </footer>
               </motion.blockquote>
             ))}
