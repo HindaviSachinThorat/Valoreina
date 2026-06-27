@@ -135,9 +135,9 @@ const stats = [
 ];
 
 const testimonials = [
-  { quote: "Excellent quality and consistent supply. Valoreina has become our default sourcing partner for premium jaggery and spices.", author: "Procurement Director", country: "United Arab Emirates" },
-  { quote: "Professional export service with impeccable documentation. Every shipment has cleared customs without a single delay.", author: "Import Manager", country: "Canada" },
-  { quote: "Reliable supplier with international standards. Their quality control is exactly what European retail buyers demand.", author: "Sourcing Head", country: "Germany" },
+  { quote: "Excellent quality and consistent supply. Valoreina has become our default sourcing partner for premium jaggery and spices.", author: "Procurement Director" },
+  { quote: "Professional export service with impeccable documentation. Every shipment has cleared customs without a single delay.", author: "Import Manager" },
+  { quote: "Reliable supplier with international standards. Their quality control is exactly what European retail buyers demand.", author: "Sourcing Head" },
 ];
 
 const navLinks = [
