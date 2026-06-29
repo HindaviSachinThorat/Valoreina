@@ -81,6 +81,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Valoreina — Premium Indian Agricultural Exports" },
       { name: "description", content: "Premium exporter of jaggery, turmeric, and seasonal vegetables from India to global markets." },
       { name: "author", content: "Valoreina" },
+      { name: "theme-color", content: "#1a1a1a" },
       { property: "og:site_name", content: "Valoreina" },
       { property: "og:type", content: "website" },
       { property: "og:image", content: logoAsset.url },
@@ -90,6 +91,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     links: [
       { rel: "icon", type: "image/png", href: "/favicon.png" },
       { rel: "apple-touch-icon", href: "/favicon.png" },
+      { rel: "manifest", href: "/manifest.json" },
       {
         rel: "stylesheet",
         href: appCss,
