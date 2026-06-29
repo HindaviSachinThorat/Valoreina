@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://valoreina.in/sitemap.xml
