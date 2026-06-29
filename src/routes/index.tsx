@@ -17,13 +17,14 @@ import catHousehold from "@/assets/cat-household.jpg";
 import cargoShip from "@/assets/cargo-ship.jpg";
 import office from "@/assets/office.jpg";
 import quality from "@/assets/quality.jpg";
+import valoreina from "@/assets/valoreina-logo.png";
 import logoAsset from "@/assets/valoreina-logo.png.asset.json";
 
 import { InquiryForm } from "@/components/InquiryForm";
 import { BackToTop, WhatsAppButton, Particles, ScrollProgressLine } from "@/components/SiteChrome";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
-const LOGO_URL = logoAsset.url;
+const LOGO_URL = valoreina;
 const CONTACT_EMAIL = "info.valoreina@gmail.com";
 const CONTACT_ADDRESS = "Wagholi, Pune, Maharashtra 412207, India";
 

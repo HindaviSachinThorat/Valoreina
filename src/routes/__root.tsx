@@ -10,7 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import logoAsset from "../assets/valoreina-logo.png.asset.json";
+import valoreina from "../assets/valoreina-logo.png";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -84,9 +84,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "theme-color", content: "#1a1a1a" },
       { property: "og:site_name", content: "Valoreina" },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: logoAsset.url },
+      { property: "og:image", content: valoreina },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:image", content: logoAsset.url },
+      { name: "twitter:image", content: valoreina },
     ],
     links: [
       { rel: "icon", type: "image/png", href: "/favicon.png" },
