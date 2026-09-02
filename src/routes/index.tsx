@@ -26,7 +26,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 
 const LOGO_URL = valoreina;
 const CONTACT_EMAIL = "info.valoreina@gmail.com";
-const CONTACT_ADDRESS = "Wagholi, Pune, Maharashtra 412207, India";
+const CONTACT_ADDRESS = "Pune, Maharashtra 412207, India";
 
 export const Route = createFileRoute("/")({
   head: () => ({
