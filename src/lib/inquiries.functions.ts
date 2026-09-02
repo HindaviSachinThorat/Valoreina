@@ -90,5 +90,51 @@ export const submitInquiry = createServerFn({ method: "POST" })
     } catch (e) {
       console.error('[submitInquiry] failed to send notification email', e);
     }
+
+    // Attempt to send WhatsApp notification via WhatsApp Cloud API (server-side)
+    try {
+      const WHATSAPP_PHONE_ID = process.env.WHATSAPP_PHONE_ID;
+      const WHATSAPP_TOKEN = process.env.WHATSAPP_TOKEN;
+      const WHATSAPP_TO = process.env.WHATSAPP_TO; // recipient number in international format without +
+      if (WHATSAPP_PHONE_ID && WHATSAPP_TOKEN && WHATSAPP_TO) {
+        const text = [
+          `New inquiry from ${payload.full_name}`,
+          payload.company ? `Company: ${payload.company}` : null,
+          `Email: ${payload.company_email}`,
+          payload.phone ? `Phone: ${payload.phone}` : null,
+          `Country: ${payload.country}`,
+          `Commodity: ${payload.commodity}`,
+          payload.quantity ? `Quantity: ${payload.quantity}` : null,
+          `Message: ${payload.message}`,
+        ].filter(Boolean).join('\n');
+
+        const url = `https://graph.facebook.com/v17.0/${WHATSAPP_PHONE_ID}/messages`;
+        const body = {
+          messaging_product: 'whatsapp',
+          to: WHATSAPP_TO,
+          type: 'text',
+          text: { body: text },
+        };
+
+        const res = await fetch(url, {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${WHATSAPP_TOKEN}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(body),
+        });
+        if (!res.ok) {
+          const txt = await res.text().catch(() => '');
+          console.error('[submitInquiry] WhatsApp API error', res.status, txt);
+        } else {
+          console.log('[submitInquiry] WhatsApp notification sent');
+        }
+      } else {
+        console.log('[submitInquiry] WhatsApp not configured; skipping WhatsApp send');
+      }
+    } catch (e) {
+      console.error('[submitInquiry] failed to send WhatsApp notification', e);
+    }
     return { ok: true as const };
   });

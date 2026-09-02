@@ -71,7 +71,7 @@ const fadeUp = {
 };
 
 const productCategories = [
-  {
+    {
     name: "Agricultural Products",
     tag: "Farm Fresh",
     image: catAgri,
@@ -243,7 +243,9 @@ function Home() {
 
       {/* ABOUT */}
       <section id="about" className="py-28 px-6">
-        <div className="mx-auto max-w-7xl grid lg:grid-cols-2 gap-16 items-center">
+        <div className="mx-auto max-w-7xl grid lg:grid-cols-2 gap-16 items-center relative">
+          {/* Vertical divider between About and Founder on large screens */}
+          <div className="hidden lg:block absolute left-1/2 top-8 bottom-8 w-px bg-white/10 -translate-x-1/2" aria-hidden="true" />
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp}>
             <span className="text-xs uppercase tracking-[0.2em] text-gold">About Valoreina</span>
             <h2 className="font-serif text-4xl md:text-5xl mt-4 text-balance">
@@ -270,12 +272,33 @@ function Home() {
             </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="relative">
-            <div className="aspect-[4/5] overflow-hidden rounded-2xl ring-1 ring-border">
-              <img src={office} alt="Modern Valoreina corporate office meeting" loading="lazy" width={1600} height={1280} className="h-full w-full object-cover" />
-            </div>
-            <div className="absolute -bottom-6 -left-6 hidden md:block bg-emerald-brand text-white p-6 rounded-2xl max-w-[240px] shadow-xl">
-              <div className="font-serif text-3xl text-gold">100%</div>
-              <div className="text-xs mt-1 text-white/80">Ethically sourced &amp; quality checked at every step.</div>
+            <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-6">
+              <div className="flex justify-center md:justify-end px-6 md:px-0">
+                {/* Rounded wrapper ensures perfect circle regardless of image intrinsic size */}
+                <div className="h-56 w-56 md:h-72 md:w-72 lg:h-80 lg:w-80 rounded-full overflow-hidden ring-4 ring-white/10 shadow-lg">
+                  <img
+                    src="/founder.jpg"
+                    alt="Hindavi Sachin Thorat, Founder"
+                    loading="lazy"
+                    width={560}
+                    height={560}
+                    onError={(e) => {
+                      // @ts-ignore - DOM image fallback
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = LOGO_URL;
+                    }}
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+              </div>
+              <div className="text-white/90 bg-background/5 p-6 md:p-0 rounded-2xl md:rounded-none md:pl-6">
+                <span className="text-xs uppercase tracking-[0.2em] text-gold">MEET THE FOUNDER</span>
+                <h3 className="font-serif text-2xl md:text-3xl mt-3">Hindavi Sachin Thorat</h3>
+                <div className="text-sm text-muted-foreground mt-2">Founder &amp; Owner, Valoreina</div>
+                <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
+                  Hindavi Sachin Thorat leads Valoreina with a commitment to quality, ethical sourcing and reliable international export operations. With deep expertise in building supplier networks and ensuring export-compliant documentation, Hindavi guides the company's vision for global partnerships and premium product standards.
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>
@@ -512,7 +535,7 @@ function Home() {
               </div>
               <div className="mt-6 flex gap-3">
                 <a href="#" aria-label="LinkedIn" className="grid h-9 w-9 place-items-center rounded-full ring-1 ring-white/20 hover:bg-gold hover:text-emerald-deep transition-colors"><Linkedin className="size-4" /></a>
-                <a href="#" aria-label="Instagram" className="grid h-9 w-9 place-items-center rounded-full ring-1 ring-white/20 hover:bg-gold hover:text-emerald-deep transition-colors"><Instagram className="size-4" /></a>
+                <a href="https://www.instagram.com/valoreina.luxury" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="grid h-9 w-9 place-items-center rounded-full ring-1 ring-white/20 hover:bg-gold hover:text-emerald-deep transition-colors"><Instagram className="size-4" /></a>
                 <a href={`mailto:${CONTACT_EMAIL}`} aria-label="Email" className="grid h-9 w-9 place-items-center rounded-full ring-1 ring-white/20 hover:bg-gold hover:text-emerald-deep transition-colors"><Mail className="size-4" /></a>
               </div>
             </div>
@@ -528,10 +551,10 @@ function Home() {
             <div>
               <h4 className="text-xs uppercase tracking-[0.18em] text-gold mb-4">Compliance</h4>
               <ul className="text-sm text-white/70 space-y-2">
-                <li>GSTIN: <span className="text-white">On Request</span></li>
-                <li>IEC: <span className="text-white">On Request</span></li>
-                <li>FSSAI Certified</li>
-                <li>APEDA Registered</li>
+                <li>GSTIN: <span className="text-white">27CYWPT4483J1Z9</span></li>
+                <li>IEC: <span className="text-white">CYWPT4483J</span></li>
+                <li>FSSAI: <span className="text-white">11526996000802</span></li>
+                <li>APEDA: <span className="text-white">RCMC/APEDA/33226/2026-2027</span></li>
               </ul>
             </div>
           </div>

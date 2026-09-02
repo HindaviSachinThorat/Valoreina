@@ -33,6 +33,7 @@ export function InquiryForm() {
     try {
       await submit({ data: payload });
       toast.success("Inquiry received. Our export desk will reach out within 24 hours.");
+      // Notification is sent server-side (email / WhatsApp) — do not redirect the user.
       form.reset();
     } catch (err) {
       console.error(err);
